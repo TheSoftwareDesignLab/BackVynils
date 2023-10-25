@@ -2,10 +2,12 @@ FROM node:12-alpine
 
 WORKDIR /usr/src/app
 
-COPY package.json .
+COPY *.json .
+
+COPY src .
 
 RUN npm install --quiet
 
-COPY . .
+RUN npm run build
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "start:prod"]

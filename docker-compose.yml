@@ -3,7 +3,7 @@ version: "3.8"
 services:
   web:
     build: .
-    command: npm run start
+    command: npm run start:prod
     volumes:
       - /usr/src/app
     environment:
@@ -27,3 +27,5 @@ services:
       - "5432:5432"
     networks:
       - default
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data/
