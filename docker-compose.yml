@@ -15,7 +15,7 @@ services:
     links:
       - db
     networks:
-      - default
+      - custom_network
 
   db:
     image: postgres
@@ -26,4 +26,8 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - default
+      - custom_network
+
+networks:
+  custom_network:
+    driver: bridge
