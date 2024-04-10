@@ -1,11 +1,11 @@
-FROM node:12-alpine
+FROM node:12.22.12-alpine
 
 WORKDIR /usr/src/app
+ENV DB_HOST='db'
 
-COPY package.json .
+COPY . .
 
 RUN npm install --quiet
 
-COPY . .
 
 CMD ["npm", "run", "start"]
